@@ -1,18 +1,39 @@
+import { useEffect, useState } from 'react';
 import { Typography, Button, Container } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 import Connect from '../features/connectMessage';
 import { useAccount } from 'wagmi';
 import { Header } from '../features/header';
+import { checkUserInDatabase } from '../utils/utils';
+import LoadingIndicator from '../features/loadingIndicator';
 
 export default function Front() {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
+  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>(
+    null
+  );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      const isUser = await checkUserInDatabase(address as string);
+      setIsUserInDatabase(isUser);
+      setIsLoading(false);
+    };
+    fetchData();
+  }, [address]);
+
+  if (isLoading) return <LoadingIndicator />;
 
   return (
     <Container disableGutters>
       {isConnected ? (
         <>
           <Header pageHeaderTitle={' '} showLogo={false} />
+
+          {/* Newsletter Section */}
           <div
             id="newsletter"
             style={{
@@ -32,7 +53,9 @@ export default function Front() {
                   color: '#737373',
                 }}
               >
-                Subscribe to H.E.R. news
+                {isUserInDatabase
+                  ? 'Welcome to HERNewsletter!'
+                  : 'Subscribe to HERNewsletter!'}
               </Typography>
               <Typography
                 variant="body2"
@@ -43,7 +66,9 @@ export default function Front() {
                   fontFamily: 'sans-serif',
                 }}
               >
-                Receive new entries directly to your inbox
+                {isUserInDatabase
+                  ? "You're all set to receive the latest news from H.E.R. DAO LATAM."
+                  : 'Receive new entries directly to your inbox'}
               </Typography>
             </div>
             <div style={{ flex: 1, marginRight: '20px' }}></div>
@@ -51,15 +76,16 @@ export default function Front() {
               <Button
                 id="btn-color-newsletter"
                 component={RouterLink}
-                to="/signup"
                 variant="contained"
+                to={isUserInDatabase ? '/signup' : '/newsletter'}
                 color="primary"
               >
-                Subscribe
+                {isUserInDatabase ? 'Update Settings' : 'Get Started'}
               </Button>
             </div>
           </div>
-          {/* seccion entries */}
+
+          {/* Entries Section */}
           <div
             id="entries"
             style={{
@@ -77,7 +103,8 @@ export default function Front() {
               </Typography>
             </div>
           </div>
-          {/* imagen1 */}
+
+          {/* Image 1 */}
           <div
             style={{
               display: 'flex',
@@ -96,7 +123,8 @@ export default function Front() {
               </a>
             </div>
           </div>
-          {/* imagen2 */}
+
+          {/* Image 2 */}
           <div
             style={{
               display: 'flex',

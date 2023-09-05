@@ -31,8 +31,12 @@ export default function SendWeb3Email() {
   const [message, setMessage] = useState('');
   const [subscribedUsers, setSubscribedUsers] = useState([]);
 
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessages, setSuccessMessages] = useState<{
+    [key: string]: string;
+  }>({});
+  const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>(
+    {}
+  );
 
   const handleCategorySelect = (category: string) => {
     if (selectedCategories.includes(category)) {
@@ -72,19 +76,27 @@ export default function SendWeb3Email() {
 
   const sendEmail = async (user: User) => {
     try {
-      console.log(`Sending email to user: ${user.encrypted_email}`);
       await sendWeb3Email(user.encrypted_email, subject, message);
-      await updateDatabase(user); // Update the database
-      setSuccessMessage(`Successfully sent email to ${user.encrypted_email}`);
-      setErrorMessage(null);
+      await updateDatabase(user);
+      setSuccessMessages({
+        ...successMessages,
+        [user.user_id]: `Successfully sent email to ${user.encrypted_email}`,
+      });
+      setErrorMessages({
+        ...errorMessages,
+        [user.user_id]: null,
+      });
     } catch (error) {
-      console.error('Error:', error);
-      setErrorMessage(
-        `Failed to send email or update database: ${
+      setSuccessMessages({
+        ...successMessages,
+        [user.user_id]: null,
+      });
+      setErrorMessages({
+        ...errorMessages,
+        [user.user_id]: `Failed to send email or update database: ${
           error.message || 'Unknown error'
-        }`
-      );
-      setSuccessMessage(null);
+        }`,
+      });
     }
   };
 
@@ -111,7 +123,7 @@ export default function SendWeb3Email() {
     <Container disableGutters>
       {isConnected ? (
         <>
-          <Header pageHeaderTitle={'Send Web3 Email'} showLogo={false} />
+          <Header pageHeaderTitle={' '} showLogo={false} />
           <div>
             <h2 id="colortitulo2">Compose Email: </h2>
             <Grid
@@ -329,24 +341,24 @@ export default function SendWeb3Email() {
                               >
                                 Send Email
                               </Button>
-                              {successMessage && (
+                              {successMessages[user.user_id] && (
                                 <Typography
                                   sx={{
                                     padding: '0 10px',
                                     color: '#28db4f',
                                     fontSize: '1rem',
-                                    frontWeight: '600',
+                                    fontWeight: '600',
                                   }}
                                   variant="body1"
                                 >
                                   Sent!
                                 </Typography>
                               )}
-                              {errorMessage && (
+                              {errorMessages[user.user_id] && (
                                 <Typography
                                   sx={{
                                     fontSize: '1rem',
-                                    frontWeight: '600',
+                                    fontWeight: '600',
                                     color: '#ff0000',
                                     padding: '0 10px',
                                   }}
@@ -361,16 +373,17 @@ export default function SendWeb3Email() {
                       )
                   )}
                 </Grid>
-                <div>
+                <div style={{ marginBottom: '20px', marginTop: '10px' }}>
                   <Typography variant="h6">
-                    Total Cost: $
+                    Number of Results: {subscribedUsers.length}
+                  </Typography>
+                  <Typography variant="h6">
+                    Total Cost:{' '}
                     {subscribedUsers.reduce(
                       (acc, user) => acc + user.email_price,
                       0
-                    )}
-                  </Typography>
-                  <Typography variant="h6">
-                    Number of Results: {subscribedUsers.length}
+                    )}{' '}
+                    XRLC
                   </Typography>
                 </div>
               </div>

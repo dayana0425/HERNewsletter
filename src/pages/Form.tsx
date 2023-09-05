@@ -9,6 +9,7 @@ import RevokeAccessForm from '../features/revokeAccess';
 import DataSecuredMessage from '../features/dataSecuredMessage';
 import SignUpForm from '../features/signupForm';
 import UpdatePreferencesForm from '../features/updatePreferencesForm';
+import LoadingIndicator from '../features/loadingIndicator';
 import {
   protectDataFunc,
   grantAccessFunc,
@@ -27,13 +28,13 @@ import { State, initialState } from '../utils/types';
 import { checkUserInDatabase, getUserData } from '../utils/utils';
 import { User } from '../utils/types';
 
+
 export default function Form() {
   const { isConnected, address } = useAccount();
   const [state, setState] = useState(initialState);
-  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>(
-    null
-  );
+  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>( null );
   const [userData, setUserData] = useState<User | null>({} as User);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChange = (key: keyof State, value: any) => {
     setState((prevState) => ({ ...prevState, [key]: value }));
@@ -144,10 +145,11 @@ export default function Form() {
 
   useEffect(() => {
     const check = async () => {
+      setIsLoading(true);
       const isUser = await checkUserInDatabase(address as string);
       const user = await getUserData(address as string);
       setIsUserInDatabase(isUser);
-      setUserData(user);
+      setUserData(user as User);
       handleChange('protectedData', user?.encrypted_email || '');
       handleChange('emailFrequency', user?.email_count_limit || 0);
       handleChange('pricePerEmail', user?.email_price || 0);
@@ -156,6 +158,7 @@ export default function Form() {
       handleChange('searchingFor', user?.search_status || '');
       handleChange('region', user?.region || '');
       handleChange('age', user?.age_range || '');
+      setIsLoading(false);
     };
 
     check();
@@ -173,6 +176,10 @@ export default function Form() {
     );
   };
 
+  if (isLoading) {
+    return <LoadingIndicator />;
+  }
+  
   return (
     <Container
       disableGutters

@@ -19,19 +19,18 @@ export default function Connect() {
   }, [isDisconnected, open]);
 
   return (
-    <Box sx={{ 
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100vh'
-    }}>
-      {error && <Typography variant="h6" sx={{ marginBottom: 4 }}>{error.message}</Typography>}
-      {isConnecting && (
-        <Typography variant="h5" sx={{ marginBottom: 4 }}>
-          Your wallet is disconnected. To continue, please connect your wallet.
-        </Typography>
-      )}
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+      }}
+    >
+      <Typography variant="h5" sx={{ marginBottom: 4 }}>
+        Your wallet is disconnected. To continue, please connect your wallet.
+      </Typography>
       <Button id="btn-color-wallet" variant="contained" onClick={() => open()}>
         Connect Wallet
       </Button>

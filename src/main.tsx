@@ -1,4 +1,4 @@
-import { StrictMode, useState, useEffect } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material';
@@ -25,7 +25,7 @@ const root = createRoot(rootElement!);
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#FCD15A',
+      main: '#fc5af4',
       contrastText: '#1D1D24',
     },
   },
