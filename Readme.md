@@ -1,3 +1,4 @@
+# Forked from: https://github.com/yedidromero/HERnewsletter
 # Project name: HER NEWS
 
 # Brief description: 
