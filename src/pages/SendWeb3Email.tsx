@@ -20,7 +20,8 @@ import {
   regionDropdownOptions,
   ageRangeDropdownOptions,
 } from '../constants';
-import { User } from '../config/types';
+import { User } from '../utils/types';
+
 import { sendWeb3Email } from '../utils/iexecApi';
 
 export default function SendWeb3Email() {
@@ -29,14 +30,13 @@ export default function SendWeb3Email() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  const [subscribedUsers, setSubscribedUsers] = useState([]);
+  const [subscribedUsers, setSubscribedUsers] = useState<User[]>([]);
 
-  const [successMessages, setSuccessMessages] = useState<{
-    [key: string]: string;
-  }>({});
-  const [errorMessages, setErrorMessages] = useState<{ [key: string]: string }>(
-    {}
-  );
+
+  const [successMessages, setSuccessMessages] = useState<{ [key: string]: string | null }>({});
+  const [errorMessages, setErrorMessages] = useState<{ [key: string]: string | null }>({});
+
+  
 
   const handleCategorySelect = (category: string) => {
     if (selectedCategories.includes(category)) {
@@ -94,7 +94,7 @@ export default function SendWeb3Email() {
       setErrorMessages({
         ...errorMessages,
         [user.user_id]: `Failed to send email or update database: ${
-          error.message || 'Unknown error'
+          (error as Error).message || 'Unknown error'
         }`,
       });
     }

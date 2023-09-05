@@ -53,7 +53,7 @@ const Front = () => {
                 ? buttonText.map((text, index) => (
                     <CustomButton key={index} text={text} link={buttonLink[index]} />
                   ))
-                : <CustomButton text={buttonText} link={buttonLink} />
+                : null
               }
             </Box>
           </Grid>

@@ -23,16 +23,17 @@ import {
   regionDropdownOptions,
   ageRangeDropdownOptions,
 } from '../constants';
-import { supabase } from '../config/client/';
+import { supabase } from '../config/client';
 import { State, initialState } from '../utils/types';
 import { checkUserInDatabase, getUserData } from '../utils/utils';
 import { User } from '../utils/types';
 
-
 export default function Form() {
   const { isConnected, address } = useAccount();
   const [state, setState] = useState(initialState);
-  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>( null );
+  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>(
+    null
+  );
   const [userData, setUserData] = useState<User | null>({} as User);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,8 +42,8 @@ export default function Form() {
   };
 
   const addToDB = async () => {
-    const subscribedUser = {
-      user_id: address,
+    const subscribedUser: User = {
+      user_id: '',
       encrypted_email: state.protectedData,
       occupation: state.occupation,
       category: state.category,
@@ -51,11 +52,12 @@ export default function Form() {
       age_range: state.age,
       email_count_limit: state.emailFrequency,
       email_price: state.pricePerEmail,
+      created_at: new Date().toISOString(),
     };
 
     const { data, error } = await supabase
       .from('subscribed_users')
-      .upsert([subscribedUser], { conflictFields: ['user_id'] });
+      .upsert([subscribedUser], { onConflict: 'user_id'});
 
     if (error) {
       console.error('Supabase Upsert Error:', error);
@@ -179,7 +181,7 @@ export default function Form() {
   if (isLoading) {
     return <LoadingIndicator />;
   }
-  
+
   return (
     <Container
       disableGutters

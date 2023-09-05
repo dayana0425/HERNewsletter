@@ -1,8 +1,13 @@
-// CustomButton.jsx
-import { Button } from '@mui/material';
+import React from 'react';
+import { Button, ButtonProps } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
-const CustomButton = ({ text, link }) => (
+interface CustomButtonProps extends ButtonProps {
+  text: string;
+  link: string;
+}
+
+const CustomButton: React.FC<CustomButtonProps> = ({ text, link, ...rest }) => (
   <Button
     variant="contained"
     id="btn-color"
@@ -13,6 +18,7 @@ const CustomButton = ({ text, link }) => (
       borderRadius: '20px',
       color: '#DA077C',
     }}
+    {...rest}
   >
     {text}
   </Button>

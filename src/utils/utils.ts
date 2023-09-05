@@ -1,4 +1,3 @@
-// utils.ts
 import { supabase } from '../config/client';
 import { User } from './types';
 
@@ -25,7 +24,7 @@ export const checkUserInDatabase = async (userAddress: string): Promise<boolean>
 export const getUserData = async (userAddress: string): Promise<User | null> => {
     try {
       const { data, error } = await supabase
-        .from<User>('subscribed_users')
+        .from('subscribed_users')
         .select('*')
         .eq('user_id', userAddress)
         .single();
