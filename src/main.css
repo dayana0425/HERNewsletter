@@ -1,0 +1,273 @@
+#form-box {
+  margin-top: 20px;
+  background: #F5EAFC;
+  border-radius: 11px;
+}
+
+#spacingStyle {
+  display: block;
+  margin: 20px auto;
+}
+
+#grantAccessForm {
+  width: 50%;
+  margin-top: 20px;
+  background: #d2a6ed;
+  border-radius: 11px;
+  padding: 10px 43px;
+  padding-bottom: 30px;
+}
+
+.second-column {
+  height: 0.5em;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  height: 0.1em !important;
+  padding: 0px;
+  font: none;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 6px;
+  border-radius: 50px;
+}
+
+#titulo {
+  font-weight: 600;
+  color: #DA077C;
+}
+
+#btn-color {
+  width: 46% !important;
+  border-radius: 20px;
+  text-transform: inherit;
+  font-weight: bold;
+}
+
+#btn-color:hover {
+  color: white !important;
+  background: #EC83BD !important;
+
+}
+
+#btn-color-wallet {
+  border-radius: 20px;
+  color: #DA077C !important;
+  background: #DBDBEF !important;
+  text-transform: inherit;
+  font-weight: bold;
+  font-size: small;
+}
+
+#btn-color-wallet:hover {
+  border-radius: 20px;
+  color: white !important;
+  background: #EC83BD !important;
+}
+
+#info-box-wallet {
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EC83BD !important;
+}
+
+#info-box-wallet .MuiTypography-root {
+  color: white !important;
+  font-weight: bold !important;
+  text-transform: inherit !important;
+  padding: 12px !important;
+  font-size: small;
+  line-height: 2px;
+  word-spacing: 3px;
+}
+
+#colortitulo {
+  color: #DA077C !important;
+  font-family: sans-serif;
+  text-decoration: underline;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#colortituloP {
+  color: #DA077C !important;
+  font-family: sans-serif;
+  margin-left: 700%;
+
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+.MuiBox-root .css-1kuevwo {
+  width: 100% !important;
+}
+
+#newsletter {
+  background: #EDEDF8;
+  border-radius: 30px;
+}
+
+#btn-color-newsletter {
+  border-radius: 20px;
+  text-transform: inherit;
+  font-weight: bold;
+  color: white;
+  background: #737373;
+}
+
+#btn-color-newsletter:hover {
+  color: white !important;
+  background: #EC83BD !important;
+}
+
+.Typography {
+  margin: 6px;
+}
+
+#newsletter2 {
+  margin: inherit !important;
+}
+
+#entries {
+  background: #EDEDF8;
+  border-radius: 30px;
+  color: #DA077C;
+  font-weight: bold;
+}
+
+.css-e6h0mb-MuiCircularProgress-root,
+.css-176wh8e-MuiCircularProgress-circle {
+  color: #fc5aac;
+  padding: 30px;
+}
+
+#btn-color-wallet2 {
+  border-radius: 20px;
+  color: #DBDBEF !important;
+  background: #da077bb3 !important;
+  text-transform: inherit;
+  font-weight: bold;
+}
+
+#btn-color-wallet2:hover {
+  color: #DA077C !important;
+  background: #DBDBEF !important;
+  text-transform: inherit;
+  font-weight: bold;
+}
+
+.css-15y69v2-MuiPaper-root-MuiAlert-root .MuiAlert-icon {
+  color: #DA077C;
+}
+
+#colortitulo2 {
+  color: #DA077C !important;
+  font-family: sans-serif;
+  font-size: 1.8em;
+}
+
+#pageHeader {
+  color: #737373 !important;
+  font-family: sans-serif;
+  font-size: 1.8em;
+}
+
+#head6 {
+  color: #737373 !important;
+  font-family: sans-serif;
+  font-size: larger;
+}
+
+#btn-color-newsletter2 {
+  border-radius: 20px;
+  text-transform: inherit;
+  font-weight: bold;
+  color: white;
+  background: #B8B8DF;
+  font-size: 18px;
+  width: 16%;
+  font-family: sans-serif;
+}
+
+#btn-color-newsletter2:hover {
+  color: white !important;
+  background: #EC83BD !important;
+}
+
+#btn-color-email{
+  border-radius: 20px;
+  text-transform: inherit;
+  font-weight: bold;
+  color: white;
+  background: #B8B8DF;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+#btn-color-email:hover {
+  color: white !important;
+  background: #EC83BD !important;
+}
+
+
+.css-ispfl3-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 22px !important;
+  font-family: sans-serif !important;
+  border: 0px solid black !important;
+}
+
+.css-1sqnrkk-MuiInputBase-input-MuiOutlinedInput-input {
+  font-size: 22px !important;
+  font-family: sans-serif !important;
+  border: 0px solid black !important;
+}
+
+.MuiCircularProgress-root,
+.MuiCircularProgress-indeterminate,
+.MuiCircularProgress-colorPrimary,
+.css-wjoxmk-MuiCircularProgress-root {
+  padding: 30px;
+  animation: none;
+}
+
+.btn-group button {
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+#newsletter {
+  padding-bottom: 25px;
+  padding-top: 10px;
+  width: 83%;
+  margin-left: 10%;
+}
+
+#newsletter p {
+  margin-left: 2%;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.btn-group button {
+  flex-grow: 1;
+  margin: 0 5px;
+}
