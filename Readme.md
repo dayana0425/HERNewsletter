@@ -24,6 +24,7 @@ For example: Student, Development, Searching for a full time job, from Latam, an
 # Run Locally
 1. `yarn install`
 2. `yarn start`
+3. Navigate to localhost!
 
 # Run Build
 1. `yarn build-proj`
