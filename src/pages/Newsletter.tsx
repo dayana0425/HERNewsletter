@@ -77,7 +77,7 @@ export default function Front() {
                 id="btn-color-newsletter"
                 component={RouterLink}
                 variant="contained"
-                to={isUserInDatabase ? '/signup' : '/newsletter'}
+                to={'/signup'}
                 color="primary"
               >
                 {isUserInDatabase ? 'Update Settings' : 'Get Started'}
