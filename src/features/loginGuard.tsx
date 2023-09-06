@@ -2,27 +2,23 @@ import { FC, ReactNode, useEffect } from 'react';
 import { useAccount, useNetwork, useSwitchNetwork } from 'wagmi';
 
 const LoginGuard: FC<{ children: ReactNode }> = ({ children }) => {
-  const { isConnected } = useAccount();
+  const { isConnected, address } = useAccount();
   const { chain } = useNetwork();
   const { chains, switchNetwork } = useSwitchNetwork();
 
-  const handleSwitchNetwork = (chainId: number) => {
-    switchNetwork?.(chainId);
+  const handleSwitchNetwork = async (chainId: number) => {
+    await switchNetwork?.(chainId);
   };
 
   useEffect(() => {
     if (isConnected && chain?.id !== 134) {
-      handleSwitchNetwork(chains[0]?.id);
+      if (address) {
+        handleSwitchNetwork(chains[0]?.id);
+      }
     }
-  }, [isConnected, chain]);
+  }, [isConnected, address, chain]);
 
-  return (
-    <>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 export default LoginGuard;
-
-
