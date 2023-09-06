@@ -1,7 +1,7 @@
 # Live Demo: [venerable-puppy-122125.netlify.app/](https://venerable-puppy-122125.netlify.app/)
 
 # Originally forked from: https://github.com/yedidromero/HERnewsletter
-- The original fork concentrated on elevating the UI/UX aspects of the app. 👏🏽👏🏽 In contrast, this repository specializes in integrating iExec's DataProtector and Web3Mail tools, and also incorporates Supabase DB for added functionality. 👍
+- The original fork concentrated on elevating the UI/UX aspects of the app. 👏🏽👏🏽 In contrast, this repository specializes in integrating iExec's DataProtector and Web3Mail tools, and also incorporates Supabase DB for added functionality & improved UX. 👍
   
 # Project Name: HER NEWS
 
