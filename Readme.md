@@ -1,4 +1,4 @@
-# Live Demo: main--venerable-puppy-122125.netlify.app/
+# Live Demo: [venerable-puppy-122125.netlify.app/](https://venerable-puppy-122125.netlify.app/)
 
 # Forked from: https://github.com/yedidromero/HERnewsletter
 
