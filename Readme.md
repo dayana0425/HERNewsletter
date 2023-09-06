@@ -27,7 +27,13 @@ For example: Student, Development, Searching for a full time job, from Latam, an
 # Run Locally
 1. `yarn install`
 2. `yarn start`
-3. Navigate to localhost!
+3. Set enviornment variables in `.env` file
+```
+VITE_WALLET_CONNECT_PROJECT_ID = ''
+VITE_SUPABASE_URL = ''
+VITE_SUPABASE_KEY = '' 
+```
+5. Navigate to localhost!
 
 # Run Build
 1. `yarn build-proj`
