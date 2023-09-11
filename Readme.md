@@ -26,22 +26,22 @@ HER NEWS is a decentralized application (dApp) offering the latest insights on b
 - **Encrypt Email using iExec's `protectData`**: Clicking 'Subscribe' triggers immediate email encryption via iExec's `protectData` method.
 - **Blockchain and Smart Contract**: Encrypted emails are stored on the blockchain, managed by an iExec-facilitated smart contract which also governs payments and permissions.
 
-## Personalizing Your HERNewsletter Experience
+### Personalizing Your HERNewsletter Experience
 
 - **Secure Access via iExec's `grantAccess`**: We utilize iExec’s `grantAccess` method to obtain authorized access to the user's encrypted email.
 - **Set Your Preferences**: Using iExec's user-centric technology, you can specify the volume of emails you wish to receive and the payment you expect for each.
 
-## How We Handle Your Data
+### How We Handle Your Data
 
 - **Conditional Data Storage**: User data, encrypted emails, and preferences are securely stored in our Supabase database only after obtaining user permissions via iExec's technology.
 - **Note on Data Integrity**: All data is stored in its original form except the email, which is encrypted via iExec's technology.
 
-## Managing Our Audience
+### Managing Our Audience
 
 - **Admin Interface**: Team members filter users based on demographics and preferences.
 - **Compliance and Budget Checks**: Before sending emails, we ensure we comply with user-set preferences and have sufficient budget.
 
-## Private Emailing via Web3Mail
+### Private Emailing via Web3Mail
 
 - **Individual Emailing with `sendEmail`**: For now, we use Web3Mail's `sendEmail` method for one-by-one email sending to wallet accounts without disclosing email addresses.
 - **Future Outlook**: We hope to integrate bulk email sending capabilities to make the process less tedious for DAO admins.
@@ -75,7 +75,7 @@ HER NEWS is a decentralized application (dApp) offering the latest insights on b
 
 ### Build for production
 
-## Steps
+#### Steps
 1. Build the project:
     ```
     yarn build-proj
