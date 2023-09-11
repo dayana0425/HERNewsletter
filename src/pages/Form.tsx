@@ -24,16 +24,13 @@ import {
   ageRangeDropdownOptions,
 } from '../constants';
 import { supabase } from '../config/client';
-import { State, initialState } from '../utils/types';
+import { User, State, initialState } from '../utils/types';
 import { checkUserInDatabase, getUserData } from '../utils/utils';
-import { User } from '../utils/types';
 
 export default function Form() {
   const { isConnected, address } = useAccount();
   const [state, setState] = useState(initialState);
-  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>(
-    null
-  );
+  const [isUserInDatabase, setIsUserInDatabase] = useState<boolean | null>( null );
   const [userData, setUserData] = useState<User | null>({} as User);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,7 +40,7 @@ export default function Form() {
 
   const addToDB = async () => {
     const subscribedUser: User = {
-      user_id: '',
+      user_id: address as string,
       encrypted_email: state.protectedData,
       occupation: state.occupation,
       category: state.category,
