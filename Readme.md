@@ -8,7 +8,7 @@
 ---
 # Brief Description
 
-<p>HER NEWS is a decentralized application (dApp) offering the latest insights on blockchain and Web3. But it's not just about news; it's also a place to find job opportunities and career growth. Leveraging iExec technology, you can monetize your data securely while still maintaining privacy. DAOs and other Web3 organizations can take advantage of this platform to reach out to their communities better.</p>
+<p>HERNewsletter is a decentralized application (dApp) offering the latest insights on blockchain and Web3. But it's not just about news; it's also a place to find job opportunities and career growth. Leveraging iExec technology, you can monetize your data securely while still maintaining privacy. DAOs and other Web3 organizations can take advantage of this platform to reach out to their communities better.</p>
 
 ---
 # How does it work?
