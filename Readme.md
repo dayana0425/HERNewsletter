@@ -1,4 +1,5 @@
 # Live Demo: [venerable-puppy-122125.netlify.app/](https://venerable-puppy-122125.netlify.app/)
+# Testing Instructions: [Click Here](https://scribehow.com/shared/Step-by-Step_Guide_How_to_Sign_Up_for_HERNewsletter_DEMO__DmQvRSpeTNWTij9p2-T_5g)
 
 # Originally forked from: https://github.com/yedidromero/HERnewsletter
 - The original fork worked on designing & implementing the UI/UX aspects of our DApp. 👏🏽 In contrast, this repository worked on integrating iExec's DataProtector and Web3Mail tools, and also incorporating Supabase DB for added functionality & improved UX. 👍 
